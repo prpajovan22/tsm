@@ -1,3 +1,5 @@
-<button type="button" routerLink="/signup">Signup</button>
-<button type="button" routerLink="/login">Login</button>
+<button type="button" routerLink="/signup" *ngIf="!isLoggedIn">Signup</button>
+<button type="button" routerLink="/login" *ngIf="!isLoggedIn">Login</button>
+<button type="button" routerLink="/profile" *ngIf="isLoggedIn">Profile</button>
+<button type="button" (click)="logout()" *ngIf="isLoggedIn">Logout</button>
 <router-outlet></router-outlet>
