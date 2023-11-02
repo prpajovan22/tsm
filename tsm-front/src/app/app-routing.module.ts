@@ -4,12 +4,16 @@ import { SignupComponent } from './components/signup/signup.component';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { AllCategoriesComponent } from './components/all-categories/all-categories.component';
+import { CreateCategorieComponent } from './components/create-categorie/create-categorie.component';
 
 const routes: Routes = [
   {path:'signup',component:SignupComponent},
   {path:'login',component:LoginComponent},
   {path:'dashboard',component:DashboardComponent},
   {path:'profile',component:ProfileComponent},
+  {path:'categorie',component:AllCategoriesComponent},
+  {path:'create-categorie',component:CreateCategorieComponent},
 ];
 
 @NgModule({

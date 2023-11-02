@@ -17,7 +17,7 @@ public class UserService {
         User user = userRepository.findByEmail(userEmail);
         if (user != null) {
             UserDTO userDTO = new UserDTO();
-            userDTO.setId(user.getId());
+            userDTO.setId(user.getUser_id());
             userDTO.setEmail(user.getEmail());
             userDTO.setPhone(user.getPhone());
             userDTO.setName(user.getName());

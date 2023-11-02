@@ -1,0 +1,12 @@
+<div class="card col-md-6 offset-md-3">
+    <h3>Create a categorie</h3>
+        <form (ngSubmit)="onSubmit()">
+            
+            <div class="form-group">
+                <label for="name">Type of categorie</label>
+                <input type="text" class="form-control" [(ngModel)]="categories.type" id="type" required name="type">
+            </div>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form> 
+</div>
+
