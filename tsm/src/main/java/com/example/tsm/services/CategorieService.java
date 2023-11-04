@@ -1,6 +1,7 @@
 package com.example.tsm.services;
 
 import com.example.tsm.models.Categorie;
+import com.example.tsm.models.User;
 import com.example.tsm.repositorys.CategorieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,5 +28,9 @@ public class CategorieService {
 
     public void delete(Long id){
         categorieRepository.deleteById(id);
+    }
+
+    public List<Categorie> findCategoriesByUserId(Long userId) {
+        return categorieRepository.findByUserId(userId);
     }
 }

@@ -32,11 +32,27 @@ export class CategorieService {
   constructor(private http:HttpClient) { }
 
   getCategories(): Observable<Categorie[]>{
-    return this.http.get<Categorie[]>(this.apiCategorieUrl + '/all');
+    return this.http.get<Categorie[]>(this.apiCategorieUrl + '/all',{
+      headers: this.createAuthorizationHeader()
+    });
   }
 
   createCategorie(communitys: any) : Observable<Categorie>{
     console.log(communitys);
-    return this.http.post<Categorie>(this.apiCategorieUrl + '/create', communitys);
+    return this.http.post<Categorie>(this.apiCategorieUrl + '/create', communitys,{
+      headers: this.createAuthorizationHeader()
+    });
+  }
+
+  private createAuthorizationHeader(){
+    const jwt = localStorage.getItem('JWT');
+    if(jwt){
+      return new HttpHeaders().set(
+        'Authorization','Bearer ' + jwt
+      )
+    }else{
+      console.log("JWT token is not found in the Local Storage")
+    }
+    return null;
   }
 }

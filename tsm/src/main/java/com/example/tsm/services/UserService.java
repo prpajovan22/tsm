@@ -18,6 +18,7 @@ public class UserService {
         if (user != null) {
             UserDTO userDTO = new UserDTO();
             userDTO.setId(user.getUser_id());
+            userDTO.setUsername(user.getUsername());
             userDTO.setEmail(user.getEmail());
             userDTO.setPhone(user.getPhone());
             userDTO.setName(user.getName());
@@ -26,6 +27,18 @@ public class UserService {
             return userDTO;
         }
         return null;
+    }
+
+    public User getUserByName(String name){
+        return userRepository.findByName(name);
+    }
+
+    public User getUserByUsername(String username){
+        return  userRepository.findByUsername(username);
+    }
+
+    public User findById(Long id){
+        return userRepository.findById(id).orElse(null);
     }
 
 }
