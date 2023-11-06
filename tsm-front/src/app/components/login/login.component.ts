@@ -29,7 +29,6 @@ export class LoginComponent implements OnInit {
     console.log(this.loginForm.value);
     this.service.login(this.loginForm.value).subscribe((response)=>{
       if(response.jwt){
-        alert(response.jwt);
         const jwt = response.jwt;
         localStorage.setItem('JWT',jwt);
         this.router.navigateByUrl('profile');

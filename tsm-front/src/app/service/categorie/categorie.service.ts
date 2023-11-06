@@ -44,6 +44,24 @@ export class CategorieService {
     });
   }
 
+  updateCategorie(id:number,formData: FormData) : Observable<Categorie>{
+    return this.http.put<Categorie>(`${this.apiCategorieUrl}/${id}`, formData,{
+      headers: this.createAuthorizationHeader()
+    });
+  }
+
+  getCategorieById(id:number): Observable<any>{
+    return this.http.get(`${this.apiCategorieUrl}/${id}`,{
+      headers: this.createAuthorizationHeader()
+    });
+  }
+
+  deleteCategorie(id:number):Observable<any>{
+    return this.http.delete(`${this.apiCategorieUrl}/${id}`,{
+      headers: this.createAuthorizationHeader()
+    });
+  }
+
   private createAuthorizationHeader(){
     const jwt = localStorage.getItem('JWT');
     if(jwt){

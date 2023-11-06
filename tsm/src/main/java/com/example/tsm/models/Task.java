@@ -7,6 +7,7 @@ import lombok.Data;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "task")
@@ -29,6 +30,6 @@ public class Task {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "task", cascade = CascadeType.ALL)
-    private List<Categorie> categories = new ArrayList<>();
+    @ManyToMany
+    Set<Categorie> categories;
 }

@@ -60,7 +60,9 @@ public class CategorieController {
 
                 User user = userService.getUserByUsername(loggedInUser);
 
-                if (user != null) {
+                User user1 = userService.findById(1L);
+
+                if (user1 != null) {
                     Categorie categorie = new Categorie();
                     categorie.setType(type);
                     categorie.setUser(user);
@@ -76,5 +78,33 @@ public class CategorieController {
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred");
         }
+    }
+
+    @GetMapping("/{id}")
+    private ResponseEntity<Categorie> getCategorieById(@PathVariable("id")Long id){
+        Categorie categorie = categorieService.findById(id);
+        if(categorie == null){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(categorie,HttpStatus.OK);
+    }
+
+    @PutMapping("/{id}")
+    private ResponseEntity<Categorie> updateCategorie(@PathVariable("id")Long id,@RequestParam("type") String type){
+        Categorie existingCategorie = categorieService.findById(id);
+        if(existingCategorie == null){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        existingCategorie.setType(type);
+
+        categorieService.save(existingCategorie);
+
+        return new ResponseEntity<>(existingCategorie,HttpStatus.OK);
+
+    }
+
+    @DeleteMapping("/{id}")
+    private void deleteCategorie(@PathVariable("id")Long id){
+        categorieService.delete(id);
     }
 }

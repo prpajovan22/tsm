@@ -6,6 +6,8 @@
     <tr *ngFor="let a of cat">
       <td>{{ a.id }}</td>
       <td>{{ a.type}} </td>
+      <td><button  (click)="updateCategorie(a.id)">Update</button></td>
+      <td><button  (click)="deleteCategorie(a.id)">Delete</button></td>
     </tr>
 </table>
 

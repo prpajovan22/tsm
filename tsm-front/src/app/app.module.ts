@@ -11,6 +11,11 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { CreateCategorieComponent } from './components/create-categorie/create-categorie.component';
 import { AllCategoriesComponent } from './components/all-categories/all-categories.component';
+import { UpdateCategorieComponent } from './components/update-categorie/update-categorie.component';
+import { MatDialog, MatDialogModule, MatDialogRef} from '@angular/material/dialog';
+import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -20,14 +25,19 @@ import { AllCategoriesComponent } from './components/all-categories/all-categori
     DashboardComponent,
     ProfileComponent,
     CreateCategorieComponent,
-    AllCategoriesComponent
+    AllCategoriesComponent,
+    UpdateCategorieComponent,
+    ConfirmationDialogComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
