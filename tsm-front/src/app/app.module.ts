@@ -16,6 +16,7 @@ import { MatDialog, MatDialogModule, MatDialogRef} from '@angular/material/dialo
 import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
+import { UpdateProfileComponent } from './components/update-profile/update-profile.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { MatInputModule } from '@angular/material/input';
     CreateCategorieComponent,
     AllCategoriesComponent,
     UpdateCategorieComponent,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    UpdateProfileComponent
   ],
   imports: [
     BrowserModule,

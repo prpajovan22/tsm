@@ -12,13 +12,13 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-
     public UserDTO getUserProfileByEmail(String userEmail) {
         User user = userRepository.findByEmail(userEmail);
         if (user != null) {
             UserDTO userDTO = new UserDTO();
             userDTO.setId(user.getUser_id());
             userDTO.setUsername(user.getUsername());
+            userDTO.setPassword(user.getPassword());
             userDTO.setEmail(user.getEmail());
             userDTO.setPhone(user.getPhone());
             userDTO.setName(user.getName());
@@ -39,6 +39,10 @@ public class UserService {
 
     public User findById(Long id){
         return userRepository.findById(id).orElse(null);
+    }
+
+    public User save(User user){
+        return userRepository.save(user);
     }
 
 }

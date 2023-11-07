@@ -1,10 +1,11 @@
 import { SafeResourceUrl } from "@angular/platform-browser"
 
-export class User{
+export class UserFront{
     id:number
     name:string
     email:string
     phone:string
     password:string
-    avatar:File
+    avatar:string
+    sanitisedImage: SafeResourceUrl;
 }
