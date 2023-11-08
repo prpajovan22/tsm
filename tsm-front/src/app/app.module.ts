@@ -17,6 +17,7 @@ import { ConfirmationDialogComponent } from './components/confirmation-dialog/co
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
 import { UpdateProfileComponent } from './components/update-profile/update-profile.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { UpdateProfileComponent } from './components/update-profile/update-profi
     AllCategoriesComponent,
     UpdateCategorieComponent,
     ConfirmationDialogComponent,
-    UpdateProfileComponent
+    UpdateProfileComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
