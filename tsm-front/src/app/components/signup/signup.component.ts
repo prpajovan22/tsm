@@ -21,11 +21,13 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.signupForm = this.fb.group({
-      name : ['',Validators.required],
-      email : ['',Validators.required,Validators.email],
-      password : ['',Validators.required],
-      confirmPassword : ['',Validators.required],
-    },{ validator:this.passwordMatchValidator})
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email, this.emailValidator]],
+      username:['',[Validators.required]],
+      password: ['', Validators.required],
+      confirmPassword: ['', Validators.required],
+      phone: ['']
+    }, { validator: this.passwordMatchValidator });
   }
 
   private passwordMatchValidator(fg:FormGroup){
@@ -44,5 +46,14 @@ export class SignupComponent implements OnInit {
       console.log(response)
       this.router.navigate(['login'])
     })
+  }
+
+  emailValidator(control) {
+    const email = control.value;
+    if (email.endsWith('@gmail.com')) {
+      return null; 
+    } else {
+      return { invalidEmail: true };
+    }
   }
 }

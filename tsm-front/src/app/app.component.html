@@ -1,3 +1,4 @@
+<body style="background-image: url(../assets/images/background.jpg); background-size: cover;">
 <button type="button" routerLink="/signup" *ngIf="!isLoggedIn">Signup</button>
 <button type="button" routerLink="/login" *ngIf="!isLoggedIn">Login</button>
 <button type="button" routerLink="/profile" *ngIf="isLoggedIn">Profile</button>
@@ -6,3 +7,4 @@
 <button type="button" routerLink="/create-categorie" *ngIf="isLoggedIn">Create a categorie</button>
 <button type="button" (click)="logout()" *ngIf="isLoggedIn">Logout</button>
 <router-outlet></router-outlet>
+</body>
