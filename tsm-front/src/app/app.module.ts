@@ -18,6 +18,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
 import { UpdateProfileComponent } from './components/update-profile/update-profile.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { AllTasksComponent } from './components/all-tasks/all-tasks.component';
+import { CreateTaskComponent } from './components/create-task/create-task.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     UpdateCategorieComponent,
     ConfirmationDialogComponent,
     UpdateProfileComponent,
-    NavBarComponent
+    NavBarComponent,
+    AllTasksComponent,
+    CreateTaskComponent
   ],
   imports: [
     BrowserModule,
