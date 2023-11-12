@@ -8,5 +8,5 @@ export class Task{
     creationDate:Date;
     dueDate:Date;
     user:User;
-    categories:Categorie;
+    categories:Categorie[];
 }

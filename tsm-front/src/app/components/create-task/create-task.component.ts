@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Categorie } from 'src/app/model/Categorie';
 import { Task } from 'src/app/model/Task';
 import { CategorieService } from 'src/app/service/categorie/categorie.service';
@@ -16,6 +17,7 @@ export class CreateTaskComponent implements OnInit {
   tasks:Task
   selectedCategories: string[] = [];
   categories: Categorie[] = [];
+  
 
   constructor(private route:Router,private taskService:TaskService,private categoryService:CategorieService) { }
 
@@ -31,23 +33,31 @@ export class CreateTaskComponent implements OnInit {
     );
   }
 
-  createTask(): void {
+  createTask(task: Task): Observable<any> {
     const formData = new FormData();
-    formData.append('type', this.tasks.title);
-  
-    this.taskService.createTask(formData).subscribe(
-      data => {
-        console.log(data);
-        this.tasks = new Task();
-        console.log(this.tasks);
-        this.redirectToAllTasks();
-      },
-      error => console.log(error)
-    );
+    formData.append('title', task.title);
+    formData.append('description', task.description);
+    task.dueDate = new Date();
+    formData.append('dueDate', task.dueDate ? task.dueDate.toISOString() : '');
+    console.log(this.selectedCategories)
+    if (this.selectedCategories) {
+
+      formData.append('categories', JSON.stringify(this.selectedCategories));  
+    }
+
+    return this.taskService.createTask(formData);
   }
-  onSubmit(){
-    this.createTask();
-  }
+  onSubmit(): void {
+  this.createTask(this.tasks).subscribe(
+    data => {
+      console.log(data);
+      this.tasks = new Task();
+      this.selectedCategories = [];
+      this.redirectToAllTasks();
+    },
+    error => console.log(error)
+  );
+}
 
   redirectToAllTasks(){
     this.route.navigate(['/tasks'])

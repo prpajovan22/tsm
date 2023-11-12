@@ -8,6 +8,8 @@ import { AllCategoriesComponent } from './components/all-categories/all-categori
 import { CreateCategorieComponent } from './components/create-categorie/create-categorie.component';
 import { UpdateCategorieComponent } from './components/update-categorie/update-categorie.component';
 import { UpdateProfileComponent } from './components/update-profile/update-profile.component';
+import { AllTasksComponent } from './components/all-tasks/all-tasks.component';
+import { CreateTaskComponent } from './components/create-task/create-task.component';
 
 const routes: Routes = [
   {path:'signup',component:SignupComponent},
@@ -17,7 +19,9 @@ const routes: Routes = [
   {path:'categorie',component:AllCategoriesComponent},
   {path:'create-categorie',component:CreateCategorieComponent},
   {path:'updateCategorie/:id',component:UpdateCategorieComponent},
-  {path:'updateProfile',component:UpdateProfileComponent}
+  {path:'updateProfile',component:UpdateProfileComponent},
+  {path:'tasks',component:AllTasksComponent},
+  {path:'create-task',component:CreateTaskComponent}
 ];
 
 @NgModule({

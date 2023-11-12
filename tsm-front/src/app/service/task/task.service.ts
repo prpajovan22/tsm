@@ -31,7 +31,7 @@ export class TaskService {
   constructor(private http:HttpClient) { }
 
   getTasks(): Observable<Task[]>{
-    return this.http.get<Task[]>(this.apiTaskUrl + '/all',{
+    return this.http.get<Task[]>(this.apiTaskUrl,{
       headers: this.createAuthorizationHeader()
     });
   }

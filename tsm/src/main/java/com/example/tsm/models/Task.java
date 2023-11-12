@@ -1,6 +1,7 @@
 package com.example.tsm.models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -26,10 +27,12 @@ public class Task {
 
     private LocalDate dueDate;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 
+    @JsonIgnore
     @ManyToMany
     Set<Categorie> categories;
 }

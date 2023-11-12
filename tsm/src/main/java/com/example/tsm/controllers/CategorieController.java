@@ -27,7 +27,7 @@ public class CategorieController {
     @Autowired
     private UserService userService;
 
-    /*@GetMapping("/all")
+    @GetMapping("/all")
     public ResponseEntity<List<Categorie>> findAll(Authentication authentication) {
         if (authentication != null && authentication.getPrincipal() instanceof UserDetails) {
             UserDetails userDetails = (UserDetails) authentication.getPrincipal();
@@ -44,12 +44,12 @@ public class CategorieController {
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Collections.emptyList());
         }
-    }*/
+    }
 
-    @GetMapping("/all")
+    /*@GetMapping("/all")
     private List<Categorie> allCategories(){
         return categorieService.allCategories();
-    }
+    }*/
 
     @PostMapping("/create")
     public ResponseEntity<?> createCategorie(@RequestParam("type") String type, Authentication authentication) {
@@ -60,9 +60,7 @@ public class CategorieController {
 
                 User user = userService.getUserByUsername(loggedInUser);
 
-                User user1 = userService.findById(1L);
-
-                if (user1 != null) {
+                if (user != null) {
                     Categorie categorie = new Categorie();
                     categorie.setType(type);
                     categorie.setUser(user);

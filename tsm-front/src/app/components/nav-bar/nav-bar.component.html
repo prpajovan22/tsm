@@ -6,6 +6,8 @@
     <button type="button" routerLink="/categorie" *ngIf="isLoggedIn">Categorie</button>
     <button type="button" routerLink="/updateProfile" *ngIf="isLoggedIn">Update Profile</button>
     <button type="button" routerLink="/create-categorie" *ngIf="isLoggedIn">Create a categorie</button>
+    <button type="button" routerLink="/tasks" *ngIf="isLoggedIn">Tasks</button>
+    <button type="button" routerLink="/create-task" *ngIf="isLoggedIn">Create a Task</button>
     <button type="button" (click)="logout()" *ngIf="isLoggedIn">Logout</button>
   </div>
 </body>

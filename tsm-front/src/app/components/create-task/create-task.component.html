@@ -10,17 +10,13 @@
             <textarea class="form-control" [(ngModel)]="tasks.description" id="description" name="description"></textarea>
         </div>
         <div class="form-group">
-            <label for="creationDate">Creation Date</label>
-            <input type="date" class="form-control" [(ngModel)]="tasks.creationDate" id="creationDate" name="creationDate">
-        </div>
-        <div class="form-group">
             <label for="dueDate">Due Date</label>
             <input type="date" class="form-control" [(ngModel)]="tasks.dueDate" id="dueDate" name="dueDate">
         </div>
         <div class="form-group">
             <label for="categories">Categories</label>
             <select multiple class="form-control" [(ngModel)]="selectedCategories" id="categories" name="categories">
-                <option *ngFor="let category of categories" [value]="category">{{ category.type }}</option>
+              <option *ngFor="let category of categories" [value]="category.type">{{ category.type }}</option>
             </select>
         </div>
         <button type="submit" class="btn btn-success">Submit</button>

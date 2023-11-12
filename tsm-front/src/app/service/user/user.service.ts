@@ -30,7 +30,7 @@ export class UserService {
   }
 
 
-  private createAuthorizationHeader(){
+  private   createAuthorizationHeader(){
     const jwt = localStorage.getItem('JWT');
     if(jwt){
       return new HttpHeaders().set(
